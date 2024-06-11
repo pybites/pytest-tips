@@ -26,14 +26,15 @@ def test_example2(module_fixture, function_fixture):
 
 
 """
-The output of the above code will be:
-
+$ pytest test_scope.py --setup-show
+...
+test_scope.py
     SETUP    M module_fixture
         SETUP    F function_fixture
-        test_fixtures.py::test_example1 (fixtures used: function_fixture, module_fixture).
+        test_scope.py::test_example1 (fixtures used: function_fixture, module_fixture).
         TEARDOWN F function_fixture
         SETUP    F function_fixture
-        test_fixtures.py::test_example2 (fixtures used: function_fixture, module_fixture).
+        test_scope.py::test_example2 (fixtures used: function_fixture, module_fixture).
         TEARDOWN F function_fixture
     TEARDOWN M module_fixture
 """

@@ -19,16 +19,16 @@ This repository contains various examples and tips for using pytest effectively.
     - `test_hang.py`: Demonstrates using `pytest.mark.timeout` and `pytest.mark.xfail` to handle and expect timeouts.
 
 5. **Detailed Setup/Teardown Info with `--setup-show`**
-    - `conftest.py` and `test_scope.py`: Shows how to use `--setup-show` to get detailed information about fixture setup and teardown, demonstrating both module and function scope.
+    - `test_scope.py`: Shows how to use `--setup-show` to get detailed information about fixture setup and teardown, demonstrating both module and function scope.
 
 ## Running the Tests
 
-1. Install the dependencies:
+1. Install the dependencies (`pytest` and `pytest-timeout`):
     ```bash
     pip install -r requirements-dev.txt
     ```
 
-2. Run the tests:
+2. Run all tests:
     ```bash
     pytest
     ```
@@ -37,8 +37,3 @@ This repository contains various examples and tips for using pytest effectively.
     ```bash
     pytest test_scope.py --setup-show
     ```
-
-## Requirements
-
-- `pytest`
-- `pytest-timeout`
