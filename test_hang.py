@@ -3,6 +3,7 @@ import pytest
 from hang import call_api
 
 @pytest.mark.timeout(2)
+# added xfail so the test is marked as expected to fail (remove this line to see the timeout decorator fail the test)
 @pytest.mark.xfail(reason="This test is expected to timeout")
 def test_call_api():
     resp = call_api()
