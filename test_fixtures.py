@@ -1,18 +1,39 @@
 import pytest
 
-@pytest.fixture(scope="session")
-def f1():
-    print("\nSetup f1")
-    yield
-    print("\nTeardown f1")
 
 @pytest.fixture(scope="module")
-def module_function():
-    print("\nSetup module_function")
+def module_fixture():
+    print("\nSetup module_fixture")
     yield
-    print("\nTeardown module_function")
+    print("\nTeardown module_fixture")
 
 
-def test_example(f1, module_function):
-    print("Executing test_example")
+@pytest.fixture(scope="function")
+def function_fixture():
+    print("\nSetup function_fixture")
+    yield
+    print("\nTeardown function_fixture")
+
+
+def test_example1(module_fixture, function_fixture):
+    print("Executing test_example1")
     assert True
+
+
+def test_example2(module_fixture, function_fixture):
+    print("Executing test_example2")
+    assert True
+
+
+"""
+The output of the above code will be:
+
+    SETUP    M module_fixture
+        SETUP    F function_fixture
+        test_fixtures.py::test_example1 (fixtures used: function_fixture, module_fixture).
+        TEARDOWN F function_fixture
+        SETUP    F function_fixture
+        test_fixtures.py::test_example2 (fixtures used: function_fixture, module_fixture).
+        TEARDOWN F function_fixture
+    TEARDOWN M module_fixture
+"""
