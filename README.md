@@ -42,5 +42,3 @@ This repository contains various examples and tips for using pytest effectively.
 
 - `pytest`
 - `pytest-timeout`
-- `pytest-cov`
-
